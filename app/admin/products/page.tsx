@@ -29,7 +29,7 @@ export default function AdminProductsPage() {
             // Flatten category name
             const formattedProducts = data?.map(p => ({
                 ...p,
-                category: p.categories?.name || "Uncategorized",
+                category: p.categories?.[0]?.name || "Uncategorized",
                 stock: p.inventory_count, // Map inventory_count to stock for table
                 status: p.inventory_count > 0 ? "Active" : "Out of Stock"
             })) || []
