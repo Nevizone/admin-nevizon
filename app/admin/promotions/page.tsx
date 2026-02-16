@@ -40,7 +40,7 @@ export default function AdminPromotionsPage() {
         fetchPromotions()
     }, [])
 
-    const handleDelete = async (id: string) => {
+    const handleDelete = async (id: string | number) => {
         const confirmDelete = window.confirm("Are you sure you want to delete this promotion?")
         if (!confirmDelete) return
 
@@ -62,9 +62,9 @@ export default function AdminPromotionsPage() {
             label: "Status",
             render: (row: any) => (
                 <span className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium ${row.status === "Active" ? "bg-green-100 text-green-800" :
-                        row.status === "Scheduled" ? "bg-blue-100 text-blue-800" :
-                            row.status === "Ended" ? "bg-gray-100 text-gray-800" :
-                                "bg-yellow-100 text-yellow-800"
+                    row.status === "Scheduled" ? "bg-blue-100 text-blue-800" :
+                        row.status === "Ended" ? "bg-gray-100 text-gray-800" :
+                            "bg-yellow-100 text-yellow-800"
                     }`}>
                     {row.status}
                 </span>
