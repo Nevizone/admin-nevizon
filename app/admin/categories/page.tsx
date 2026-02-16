@@ -44,7 +44,7 @@ export default function AdminCategoriesPage() {
         fetchCategories()
     }, [])
 
-    const handleDelete = async (id: string) => {
+    const handleDelete = async (id: string | number) => {
         if (!confirm("Are you sure you want to delete this category?")) return
 
         const { error } = await supabase.from('categories').delete().eq('id', id)
